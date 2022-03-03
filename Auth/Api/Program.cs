@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.Configure<TokenOption>(builder.Configuration.GetSection("TokenOption"));
-builder.Services.Configure<IEnumerable<Client>>(builder.Configuration.GetSection("Clients"));
+builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clients"));
 
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService, UserService>();
