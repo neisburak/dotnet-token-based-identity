@@ -27,8 +27,13 @@ namespace Shared.Extensions
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 };
-            });
 
+                options.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = ctx => Task.CompletedTask,
+                    OnAuthenticationFailed = ctx => Task.CompletedTask
+                };
+            });
         }
     }
 }
